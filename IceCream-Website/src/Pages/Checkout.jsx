@@ -48,6 +48,7 @@ const Checkout = () => {
           placeholder="Full Name"
           value={userDetails.name}
           onChange={handleInputChange}
+          className="checkout-input"
         />
         <input
           type="text"

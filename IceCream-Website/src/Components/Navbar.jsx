@@ -20,13 +20,10 @@ const Navbar = () => {
     <header className="header">
       <nav className="nav container">
         <Link to="/" className="nav__logo">
-          <a
-            href="https://www.flaticon.com/free-icons/ice-cream"
-            title="ice cream icons">
-            <img src={icecream} width="40" className="logo-icon" />
-          </a>
-          <span className="logo-text">The</span> Chill{" "}
-          <span className="logo-text">Remedy</span>
+          <div className="logo-container">
+            <img src={icecream} alt="icecream icon" className="logo-image" />
+            <span className="logoText">Chill</span>
+          </div>
         </Link>
 
         <div
@@ -54,14 +51,7 @@ const Navbar = () => {
                 Shop
               </Link>
             </li>
-            <li className="nav__item">
-              <Link
-                to="/cart"
-                className="nav__link"
-                onClick={closeMenuOnMobile}>
-                <ion-icon name="cart-outline" className="cart-icon"></ion-icon>
-              </Link>
-            </li>
+
             <li className="nav__item">
               <Link
                 to="/events"
@@ -73,9 +63,9 @@ const Navbar = () => {
             <li className="nav__item">
               <Link
                 to="/cart"
-                className="nav__link nav__cta"
+                className="nav__link"
                 onClick={closeMenuOnMobile}>
-                Order Now
+                <ion-icon name="cart-outline"></ion-icon>
               </Link>
             </li>
           </ul>

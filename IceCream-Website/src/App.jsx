@@ -11,23 +11,26 @@ import Events from "./Pages/Events";
 import Header from "./Components/Header";
 import { CartProvider } from "./Components/CartContext";
 import LoginRegister from "./Pages/LoginRegister";
+import "./App.css";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Navbar />
+      <div className="parent-container">
+        <Header />
+        <Navbar />
+      </div>
       <CartProvider>
         <Routes>
           <Route path="/menu" element={<Menu />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </CartProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/track" element={<OrderTracking />} />
+        <Route path="/order-tracking" element={<OrderTracking />} />
         <Route path="/events" element={<Events />} />
         <Route path="/loginregister" element={<LoginRegister />} />
       </Routes>
