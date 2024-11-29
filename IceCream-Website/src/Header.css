@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgb(48, 48, 85);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.search-container {
+  flex: 1;
+}
+.search-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.account a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 1rem;
+}
+
+.social-icons a {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* Hover Effects */
+.account a:hover,
+.social-icons a:hover {
+  color: #00aced;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .search-container {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-input {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .account {
+    margin-bottom: 10px;
+  }
+}
