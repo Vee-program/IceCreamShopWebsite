@@ -54,3 +54,41 @@
 .heroButton:hover {
   background: linear-gradient(to right, pink, rgb(0, 204, 255));
 }
+@media (max-width: 780px) {
+  .hero {
+    width: 100%;
+  }
+  .heroRight {
+    padding-left: 3em;
+  }
+  .heroImage {
+    width: 100%;
+  }
+  .headline {
+    width: 100%;
+    font-size: 4rem;
+  }
+  .subheadline {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .heroLeft {
+    width: 100%;
+  }
+  .heroRight {
+    display: block;
+    width: 90%;
+    padding-left: 4.5em;
+  }
+  .headline {
+    width: 100%;
+    text-align: center;
+    font-size: 3.5rem;
+  }
+}

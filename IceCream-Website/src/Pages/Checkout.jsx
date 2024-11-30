@@ -35,6 +35,8 @@ const Checkout = () => {
 
     // Redirect to Order Tracking page
     navigate("/order-tracking");
+
+    alert("Your order was successful, You can now track your order");
   };
 
   return (

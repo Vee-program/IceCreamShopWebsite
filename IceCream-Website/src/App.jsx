@@ -16,11 +16,11 @@ import "./App.css";
 const App = () => {
   return (
     <div>
-      <div className="parent-container">
-        <Header />
-        <Navbar />
-      </div>
       <CartProvider>
+        <div className="parent-container">
+          <Header />
+          <Navbar />
+        </div>
         <Routes>
           <Route path="/menu" element={<Menu />} />
           <Route path="/cart" element={<Cart />} />

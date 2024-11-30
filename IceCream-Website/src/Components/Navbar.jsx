@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import "../Navbar.css";
 import icecream from "../assets/ice-cream.png";
+import { useCart } from "./CartContext";
 
 const Navbar = () => {
+  const { cartItemCount } = useCart();
+
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleMenu = () => {
+  //add the active class
+  const toggleActiveClass = () => {
     setShowMenu(!showMenu);
   };
 
@@ -22,13 +26,10 @@ const Navbar = () => {
         <Link to="/" className="nav__logo">
           <div className="logo-container">
             <img src={icecream} alt="icecream icon" className="logo-image" />
-            <span className="logoText">Chill</span>
           </div>
         </Link>
 
-        <div
-          className={`nav__menu ${showMenu ? "show-menu" : ""}`}
-          id="nav-menu">
+        <div className={`nav__menu ${showMenu ? "active" : ""}`} id="nav-menu">
           <ul className="nav__list">
             <li className="nav__item">
               <Link to="/" className="nav__link" onClick={closeMenuOnMobile}>
@@ -63,19 +64,36 @@ const Navbar = () => {
             <li className="nav__item">
               <Link
                 to="/cart"
-                className="nav__link"
+                className="cart-icon"
                 onClick={closeMenuOnMobile}>
                 <ion-icon name="cart-outline"></ion-icon>
+                {cartItemCount > 0 && (
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      textAlign: "center",
+                      position: "absolute",
+                      top: "-10px",
+                      right: "8px",
+                      color: "pink",
+                      fontSize: "0.9rem",
+                      backgroundColor: "white",
+                      borderRadius: "50%",
+                    }}>
+                    {cartItemCount}
+                  </div>
+                )}
               </Link>
             </li>
           </ul>
-          <div className="nav__close" id="nav-close" onClick={toggleMenu}>
-            <IoClose />
-          </div>
         </div>
-
-        <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
-          <IoMenu />
+        <div
+          className={` hamburger ${showMenu ? "active" : ""}`}
+          onClick={toggleActiveClass}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
         </div>
       </nav>
     </header>

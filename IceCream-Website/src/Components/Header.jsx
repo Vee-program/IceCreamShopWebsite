@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Header.css";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ items, onSearchResults }) => {
+  const [query, setQuery] = useState("");
+
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+    setQuery(value);
+
+    const filteredItems = items.filter((item) =>
+      item.name.toLowerCase().includes(value)
+    );
+    onSearchResults(filteredItems);
+  };
   return (
     <header className="top-header">
       <div className="search-container">
-        <input type="text" placeholder="Search..." className="search-input" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="search-input"
+          onChange={handleSearch}
+          value={query}
+        />
       </div>
       <div className="account">
         <Link to="/loginregister">Login / Register</Link>
